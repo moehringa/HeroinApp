@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keyword" content="#"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <title> RehabStar - Log in </title>
+
+    <style type="text/css">
+            .jumbotron{
+                margin-top: 10px;
+            }
+            body {
+                background-color:#1E86C8;
+            }
+            .content{
+                text-align: center;
+            }
+            .input-group{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            #hs_alert{
+                margin-top: 10px;
+            }
+            #hs_alert p {
+                text-align: center;
+            }
+        </style>
+
+</head>
+<body>
+<!--  Container -->
+<div class="container">
+    <div class="wrapper" id="login">
+        <div class="content">
+            <!-- Jumbotron -->
+            <div class="jumbotron">
+                <div class="content">
+                    <p class="fill text-center"></p>
+                    <p class="text-center">RehabStar is a community driven resource that allows users to anonymously share their stories of addiction and seek support</p>
+                    <button type="button" id="jumbotron-btn" class="btn btn-primary" data-toggle="modal" data-target="#learn-more-modal">Learn More</button>
+
+                </div>
+            </div>
+            <!-- Form -->
+            <form action="#" th:action="@{/authenticate}" th:object="${user}" method="get">
+                <!-- Username -->
+                <div class="input-group input-group-lg pad">
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input th:field="*{userName}" type="text" class="form-control" id="usr" placeholder="Username" aria-describedby="sizing-addon1"/>
+                </div>
+                <!-- Password -->
+                <div class="input-group input-group-lg pad">
+                    <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input th:field="*{password}" type="password" class="form-control" id="pswd" placeholder="Password" aria-describedby="sizing-addon1"/>
+                </div>
+                <!-- button group -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button id="lgin" type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <form action="#" th:action="@{/signup}" th:object="${user}" method="get">
+                <button id="usrnme" type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <form action="#" th:action="@{/signup}" th:object="${user}" method="get">
+                <button id="forgotpswd" type="button" class="btn btn-primary">Forgot Password</button>
+            </form>
+
+            <div>
+                <!-- Modal -->
+                <div class="modal fade" id="learn-more-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLabel">What is RehabStar?</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="paragraph">
+                                    <h5>Anonymous Stories</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="paragraph">
+                                    <h5>Like and Save</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="paragraph">
+                                    <h5>Seek Support</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Alert -->
+    <div id="hs_alert" class="alert alert-danger" role="alert">
+        <p class="alert_box"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter your credentials </p>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script th:inline="javascript">
+        //<![CDATA[
+        // document ready function
+        $(function() {
+            // hide the alert
+            $('#hs_alert').hide();
+            // sets the login word
+            function getDateTime() {
+                var date = new Date();
+                var hour = date.getHours();
+                var returnString = null;
+                if(hour < 12 || hour == 12) {
+                    returnString = "Good Morning";
+                } else if(hour > 12 && hour <= 18) {
+                    returnString = "Good Afternoon";
+                } else {
+                    returnString = "Good Evening";
+                }
+                return returnString;
+            }
+            // set the text
+            (function setLoginTime() {
+                var $fill = $('.fill');
+                $fill.text(getDateTime()).css({"font-size":"40px", "font-weight":"bold"});
+            })();
+            // show the modal if the text box is empty
+            $('#lgin').on('click', function() {
+                if($('#pswd').val() == "" || $('#usr').val() == "") {
+                    $('#hs_alert').fadeIn().show();
+                }
+            });
+        });
+        //]]>
+    </script>
+
+</html>

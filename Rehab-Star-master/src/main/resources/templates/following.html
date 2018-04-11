@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keyword" content="#"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title> RehabStar - Home </title>
+
+    <style type="text/css">
+        @media only screen and (max-device-width: 1024px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+        .progress-bar {
+            -webkit-transition: width 2.5s ease;
+            transition: width 2.5s ease;
+        }
+        .content {
+            text-align: center;
+        }
+        #jumbotron-btn{
+            text-align: center;
+            margin: 0 auto;
+        }
+        /*
+            the welcome message
+         */
+        #welcm {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .feed-presentation {
+            font-size: 48px;
+        }
+        .media {
+            background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+            background: rgba(204, 204, 204, 0.5);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .wrapper {
+            padding: 10px 10px 10px 10px;
+        }
+        .nav {
+            background: white;
+            border-radius: 5px;
+        }
+        body {
+            /* The image used */
+            background-color:#1E86C8;
+            /* Full height */
+            height: 100%;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .jumbotron {
+            margin-top: 20px;
+            background: rgba(204, 204, 204, 0.5);
+        }
+        /* navbar */
+        .navbar-default {
+            background-color: #F8F8F8;
+            border-color: #E7E7E7;
+        }
+        /* Title */
+        .navbar-default .navbar-brand {
+            color: #777;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: #5E5E5E;
+        }
+        /* Link */
+        .navbar-default .navbar-nav > li > a {
+            color: #777;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #2B66AA;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: white;
+            background-color: #2B66AA;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #555;
+            background-color: #D5D5D5;
+        }
+        /* Caret */
+        .navbar-default .navbar-nav > .dropdown > a .caret {
+            border-top-color: #777;
+            border-bottom-color: #777;
+        }
+        #signout {
+            color: #ff473d;
+        }
+        .navbar {
+            background: white;
+        }
+        .dropdown-menu > li:hover a{
+            background-color: #2B66AA;
+        }
+        .dropdown-menu > li:hover a{
+            background-color: #2B66AA;
+        }
+        .dropdown-menu > li:hover a{
+            background-color: #2B66AA;
+            color: white;
+        }
+        .meters {
+            padding-top: 10px;
+        }
+        .media-left {
+            text-align: center;
+        }
+        .post-options {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .heading {
+            text-align: left;
+        }
+        textarea {
+            resize: none;
+        }
+        .control {
+            margin-top: 10px;
+        }
+        #rprt {
+            padding-top: 10px;
+        }
+
+        #texta {
+            width: 300px;
+        }
+
+        .follow {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<!--  Container -->
+<div class="container">
+    <!-- Nav -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">RehabStar</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="presentation "><a href="#" th:href="@{/redirect}"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;Feed</a></li>
+                    <li class="presentation"><a href="#" th:href="@{/retrieveProfile}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
+                    <li class="presentation active"><a href="#" th:href="@{/following}"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Following</a></li>
+                    <li class="presentation"><a href="http://heroin.net/help/ohio/cincinnati/"><i class="fa fa-medkit" aria-hidden="true"></i>&nbsp;Help</a></li>
+
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control pull-right" placeholder="Search"/>
+                    </div>
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Settings... <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="side"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;Preferences </a></li>
+                            <li><a href="#" class="side"><i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp;FAQ</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li id="not"><a th:href="@{/home}" href="#" id="signout" class="side"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Feed -->
+
+    <div class="parallax">
+        <div th:each="follower : ${following}" class="media">
+            <div class="wrapper">
+                <div class="follow">
+                    <a href="#" id="l" class="profile-picture"><i class="fa fa-user-circle feed-presentation" aria-hidden="true"></i></a>
+                    <h3> <span th:text="${follower.userName}"></span></h3>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script th:inline="javascript">
+    //<![CDATA[
+    // document ready function
+    $(function() {
+        $('#hs_alert').hide();
+        // signed
+        function User(username, isLoggedIn, goal, data) {
+            this.username = username;
+            this.isLoggedIn = isLoggedIn;
+            this.goal = goal;
+            this.data = data;
+        }
+        var user = new User("testUser001", true, 364, {"background":"blue"});
+        // progress bar
+        $(".progress-bar").css('width', '0%');
+        $("#bar_1").css('width', '89%'); // 32
+        $("#bar_2").css('width', '65%'); // 43
+        $("#bar_3").css('width', '43%'); // 65
+        $("#bar_4").css('width', '32%'); // 89
+        var colors = ['#2B66AA'];
+        var profilePictures = $('.profile-picture');
+        $.each(profilePictures, function(i, val) {
+            var random = Math.floor(Math.random() * colors.length) + 1;
+            $(val).css('color', colors[random]);
+        });
+        // set the days - random for now
+        function setDays() {
+            var n = Math.floor(Math.random() * user.goal) + 1;
+            return "You have had " + n + " consecutive days. Keep up the good work!"
+        }
+        // sets the login word - preset for now
+        function getLoginText() {
+            var returnString;
+            if(user.isLoggedIn) {
+                returnString = "Hello, " + user.username;
+            }  else {
+                returnString = "Hello, anonymous user";
+            }
+            return returnString;
+        }
+
+        $('.form-check-label').click(function() {
+            if($('input[type=checkbox]:checked').is(':checked')){
+                $('#sbmt').removeClass('disabled');
+            } else {
+                $('#sbmt').addClass('disabled');
+            }
+        });
+        $('#sbmt').on('click', function () {
+            if($('#texta').text() == '') {
+                $('#hs_alert').fadeIn().show();
+            }
+        });
+
+        // call them
+
+
+    });
+    //]]>
+</script>
+</html>
+
+<!--
+ <form action="" th:action="@{/authenticate}" th:object="${user}" method="post">
+                <div class="input-group input-group-lg pad">
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input th:field="*{userName}" type="text" clas="form-control" id="usr" placeholder="Username" aria-describedby="sizing-addon1"/>
+                </div>
+                <div class="input-group input-group-lg pad">
+                    <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input th:field="*{password}" type="text" class="form-control" id="pswd" placeholder="Password" aria-describedby="sizing-addon1"/>
+                </div>
+                <div class="text-center">
+                    <div class="btn-group buttons pad">
+                        <button type="submit" id="lgin" class="btn btn-primary button">
+                            <h4>Log In</h4>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+-->

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keyword" content="#"/>
+    <meta name="robots" content="index, follow"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title> RehabStar - Home </title>
+
+    <style type="text/css">
+            @media only screen and (max-device-width: 1024px) {
+                .parallax {
+                    background-attachment: scroll;
+                }
+            }
+            .progress-bar {
+                -webkit-transition: width 2.5s ease;
+                transition: width 2.5s ease;
+            }
+            .content {
+                text-align: center;
+            }
+            #jumbotron-btn{
+                text-align: center;
+                margin: 0 auto;
+            }
+            /*
+                the welcome message
+             */
+            #welcm {
+                font-size: 40px;
+                font-weight: bold;
+            }
+            .feed-presentation {
+                font-size: 48px;
+            }
+            .media {
+                background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+                background: rgba(204, 204, 204, 0.5);
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+            .wrapper {
+                padding: 10px 10px 10px 10px;
+            }
+            .nav {
+                background: white;
+                border-radius: 5px;
+            }
+            body {
+                /* The image used */
+                background-color:#1E86C8;
+                /* Full height */
+                height: 100%;
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .jumbotron {
+                margin-top: 20px;
+                background: rgba(204, 204, 204, 0.5);
+            }
+            /* navbar */
+            .navbar-default {
+                background-color: #F8F8F8;
+                border-color: #E7E7E7;
+            }
+            /* Title */
+            .navbar-default .navbar-brand {
+                color: #777;
+            }
+            .navbar-default .navbar-brand:hover,
+            .navbar-default .navbar-brand:focus {
+                color: #5E5E5E;
+            }
+            /* Link */
+            .navbar-default .navbar-nav > li > a {
+                color: #777;
+            }
+            .navbar-default .navbar-nav > li > a:hover,
+            .navbar-default .navbar-nav > li > a:focus {
+                color: #2B66AA;
+            }
+            .navbar-default .navbar-nav > .active > a,
+            .navbar-default .navbar-nav > .active > a:hover,
+            .navbar-default .navbar-nav > .active > a:focus {
+                color: white;
+                background-color: #2B66AA;
+            }
+            .navbar-default .navbar-nav > .open > a,
+            .navbar-default .navbar-nav > .open > a:hover,
+            .navbar-default .navbar-nav > .open > a:focus {
+                color: #555;
+                background-color: #D5D5D5;
+            }
+            /* Caret */
+            .navbar-default .navbar-nav > .dropdown > a .caret {
+                border-top-color: #777;
+                border-bottom-color: #777;
+            }
+            #signout {
+                color: #ff473d;
+            }
+            .navbar {
+                background: white;
+            }
+            .dropdown-menu > li:hover a{
+                background-color: #2B66AA;
+            }
+            .dropdown-menu > li:hover a{
+                background-color: #2B66AA;
+            }
+            .dropdown-menu > li:hover a{
+                background-color: #2B66AA;
+                color: white;
+            }
+            .meters {
+                padding-top: 10px;
+            }
+            .media-left {
+                text-align: center;
+            }
+            .post-options {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .heading {
+                text-align: left;
+            }
+            textarea {
+                resize: none;
+            }
+            .control {
+                margin-top: 10px;
+            }
+            #rprt {
+                padding-top: 10px;
+            }
+
+            #texta {
+                width: 100%;
+                height: 400px;
+            }
+        </style>
+
+</head>
+<body>
+<!--  Container -->
+<div class="container">
+    <!-- Nav -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">RehabStar</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="presentation active"><a href="#" th:href="@{/redirect}"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;Feed</a></li>
+                    <li class="presentation"><a href="#" th:href="@{/retrieveProfile}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
+                    <li class="presentation"><a href="#" th:href="@{/following}"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Following</a></li>
+                    <li class="presentation"><a href="http://heroin.net/help/ohio/cincinnati/"><i class="fa fa-medkit" aria-hidden="true"></i>&nbsp;Help</a></li>
+
+                </ul>
+                <form th:action="@{/findStoriesByTitleSubstringOrKeyword}" th:object="${user}" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input th:field="*{currentSearch}" type="text" class="form-control pull-right" placeholder="Search"/>
+                    </div>
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Settings... <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="side"><i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;Preferences </a></li>
+                            <li><a href="#" class="side"><i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp;FAQ</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li id="not"><a th:href="@{/home}" href="#" id="signout" class="side"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="content">
+            <p id="welcm" class="fill text-center">Hello, <span th:utext="${user.userName}"></span></p>
+            <p id="days" class="text-center display">You have had <span th:utext="${user.daysClean}"></span> consecutive days clean</p>
+            <button type="button" id="jumbotron-btn" class="btn btn-primary" data-toggle="modal" data-target="#cmpsmdl" data-backdrop="static" data-keyboard="false"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Compose New Story</button>
+            <div class="report">
+                <p id="rprt" class="display">Here is your daily report:</p>
+                <div class="meters"> <!-- Meter -->
+                    <h6 class="heading display">Weekly Goal:</h6>
+                    <div class="progress">
+                        <div id="bar_1" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                    </div>
+                    <h6 class="heading display">Monthly Goal:</h6>
+                    <div class="progress"> <!-- Meter -->
+                        <div id="bar_2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">20% Complete</span>
+                        </div>
+                    </div>
+                    <h6 class="heading display">Yearly Goal:</h6>
+                    <div class="progress"> <!-- Meter -->
+                        <div id="bar_3" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">60% Complete (warning)</span>
+                        </div>
+                    </div>
+                    <h6 class="heading display">Lifetime Goal:</h6>
+                    <div class="progress"> <!-- Meter -->
+                        <div id="bar_4" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                            <span class="sr-only">80% Complete (danger)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feed -->
+    <div class="parallax">
+        <div th:each="story : ${storyList}" class="media">
+            <div class="wrapper">
+                <div class="media-left">
+                    <a href="#" id="l" class="profile-picture"><i class="fa fa-user-circle feed-presentation" aria-hidden="true"></i></a>
+                    <h3> <span th:text="${story.userName}"></span></h3>
+                    <h6>Date created: <span th:text="${story.time}"></span></h6>
+                    <!-- Follow -->
+                    <form action="#" th:action="@{/addFollower/{id}(id=${story.userId})}" th:object="${storyList}" method="post">
+                        <button type="submit" class="btn btn-primary post-options" data-toggle="modal" data-target="#learn-more-modal"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Follow User</button>
+                    </form>
+                    <!-- Report -->
+                    <button type="button" class="btn btn-danger post-options" data-toggle="modal" data-target="#learn-more-modal"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Report Post</button>
+                    <!-- Connect -->
+                    <form action="#" th:action="@{/connectTo/{storyId}(storyId=${story.id})}" th:object="${storyList}" method="get">
+                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#learn-more-modal"><i class="fa fa-connectdevelop" aria-hidden="true"></i>&nbsp;Connect To Post <span class="badge" th:text="${story.likes}"></span></button>
+                    </form>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><span th:text="${story.title}"></span></h4>
+                    <p th:text="${story.plainText}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- Modal -->
+    <div id="cmpsmdl" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">New Story</h4>
+                </div>
+                <div class="modal-body">
+                    <p>What would you like to talk about today?</p>
+                    <!-- Form -->
+                    <form method="post" action="#" th:action="@{/add}" th:object="${story}">
+                        <div class="form-group">
+                            <div class="control">
+                                <label>Give your story a title</label>
+                                <input th:field="*{title}" id="title" type="text" class="form-control" placeholder="Once upon a time..." />
+                            </div>
+                            <div class="control">
+                                <label>Tell all about it</label>
+                                <textarea th:field="*{plainText}" id="texta" class="control form-control" rows="10" placeHolder="There was a story..." name="textField"/>
+                            </div>
+                        </div>
+                        <!-- Keywords -->
+                        <div class="well" style="max-height: 300px;overflow: auto;">
+                            <h4>Keywords</h4>
+                            <p>Give your story some keywords for people to search for.</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>A keyword</label>
+                                    <input th:field="*{keyword1}" class="control form-control" rows="10" placeHolder="relapse, help, etc..." name="textField"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Another</label>
+                                    <input th:field="*{keyword2}" class="control form-control" rows="10" placeHolder="friend, family, etc..." name="textField"/>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label>One more</label>
+                                    <input th:field="*{keyword3}" class="control form-control" rows="10" placeHolder="uplifting, happy, etc..." name="textField"/>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Check box -->
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input id="check" class="form-check-input" type="checkbox"/>&nbsp;Heads up! Before you post, be sure your post conforms to our guidelines. <a href="#">Click here for rules about what to and what not to post</a> and check this box if you understand the guidlines and posting rules.
+                        </label>
+                    </div>
+                    <!-- Alert -->
+                    <div id="hs_alert" class="alert alert-danger" role="alert">
+                        <p class="alert_box"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please fill in the required boxes </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;Cancel</button>
+                        <button type="submit" id="sbmt" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;Post Story</button>
+                    </div>
+               </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script th:inline="javascript">
+        //<![CDATA[
+        // document ready function
+        $(function() {
+            $('#hs_alert').hide();
+            // signed
+            function User(username, isLoggedIn, goal, data) {
+                this.username = username;
+                this.isLoggedIn = isLoggedIn;
+                this.goal = goal;
+                this.data = data;
+            }
+            var user = new User("testUser001", true, 364, {"background":"blue"});
+            // progress bar
+            $(".progress-bar").css('width', '0%');
+            $("#bar_1").css('width', '89%'); // 32
+            $("#bar_2").css('width', '65%'); // 43
+            $("#bar_3").css('width', '43%'); // 65
+            $("#bar_4").css('width', '32%'); // 89
+            var colors = ['#2B66AA'];
+            var profilePictures = $('.profile-picture');
+            $.each(profilePictures, function(i, val) {
+                var random = Math.floor(Math.random() * colors.length) + 1;
+                $(val).css('color', colors[random]);
+            });
+            // set the days - random for now
+            function setDays() {
+                var n = Math.floor(Math.random() * user.goal) + 1;
+                return "You have had " + n + " consecutive days. Keep up the good work!"
+            }
+            // sets the login word - preset for now
+            function getLoginText() {
+                var returnString;
+                if(user.isLoggedIn) {
+                    returnString = "Hello, " + user.username;
+                }  else {
+                    returnString = "Hello, anonymous user";
+                }
+                return returnString;
+            }
+
+            $('.form-check-label').click(function() {
+                if($('input[type=checkbox]:checked').is(':checked')){
+                    $('#sbmt').removeClass('disabled');
+                } else {
+                    $('#sbmt').addClass('disabled');
+                }
+            });
+            $('#sbmt').on('click', function () {
+                if($('#texta').text() == '') {
+                    $('#hs_alert').fadeIn().show();
+                }
+            });
+
+            // call them
+
+        });
+        //]]>
+    </script>
+</html>
+
+<!--
+ <form action="" th:action="@{/authenticate}" th:object="${user}" method="post">
+                <div class="input-group input-group-lg pad">
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input th:field="*{userName}" type="text" clas="form-control" id="usr" placeholder="Username" aria-describedby="sizing-addon1"/>
+                </div>
+                <div class="input-group input-group-lg pad">
+                    <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input th:field="*{password}" type="text" class="form-control" id="pswd" placeholder="Password" aria-describedby="sizing-addon1"/>
+                </div>
+                <div class="text-center">
+                    <div class="btn-group buttons pad">
+                        <button type="submit" id="lgin" class="btn btn-primary button">
+                            <h4>Log In</h4>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+-->
