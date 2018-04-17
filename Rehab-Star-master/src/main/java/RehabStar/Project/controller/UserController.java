@@ -192,7 +192,6 @@ public class UserController {
         }
     }
 
-
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public @ResponseStatus(HttpStatus.OK) void test(@ModelAttribute(value="user") User user, Model model) {
         System.out.println(user.getUserName());
@@ -220,12 +219,9 @@ public class UserController {
         return "redirect:" + k;
     }
 
-
     @RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
     public String forgotPassord(){
         return "forgotPassword";
     }
-
-
 
 }

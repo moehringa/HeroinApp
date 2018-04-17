@@ -12,23 +12,23 @@ export default class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      username: 'dmterk',
+      username: '',
       password: '',
       error: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSUbmit2 = this.handleSubmit2.bind(this);
   }
 
   handleSubmit = () => {
     getUserInfo(this.state.username)
     .then((res) => {
-      if(res.message === 'Not Found') {
+      if(res.statusText == 'Not Found') {
         this.setState({
           error: 'User not found'
         });
       }
       else {
+        //let userInfo = {res.json()}
         this.props.navigation.navigate(
           'Profile',
           {userInfo: res}
@@ -41,30 +41,7 @@ export default class LoginForm extends React.Component {
     });
   }
 
-  handleSubmit2 = () => {
-    getAllUsers()
-    .then((res) => {
-      if(res.message === 'Not Found') {
-        this.setState({
-          error: 'User not found'
-        });
-      }
-      else {
-        this.props.navigation.navigate(
-          'Test',
-          {users: res}
-        );
-        this.setState({
-          error: false,
-          username: ''
-        })
-      }
-    });
-  }
-
     render() {
-
-
         return (
           <KeyboardAvoidingView behavior='padding' style={styles.container}>
           <StatusBar
@@ -74,36 +51,35 @@ export default class LoginForm extends React.Component {
             placeholder = 'username'
             placeholderTextColor = 'rgba(255,255,255,0.7)'
             returnKeyType='next'
-            onSubmitEditing={() => this.passowrdInput.focus()}
+            onSubmitEditing={() => this.passwordInput.focus()}
             keyboardType = 'email-address'
             autoCapitalize='none'
             autoCorrect={false}
             underlineColorAndroid='rgba(0,0,0,0)'
             style = {styles.input}
-            onChangeText={(username) => this.setState({username})}
+            onChangeText={(username) => this.setState({username: username})}
             />
             <TextInput
             placeholder = 'password'
             placeholderTextColor = 'rgba(255,255,255,0.7)'
             returnKeyType='go'
-            //onSubitEditing={}
+            //onSubmitEditing={}
             autoCapitalize='none'
             autoCorrect={false}
             underlineColorAndroid='rgba(0,0,0,0)'
             secureTextEntry
             style = {styles.input}
-            onChangeText={(password) => this.setState({password})}
+            onChangeText={(password) => this.setState({password: password})}
             />
 
             <TouchableOpacity style = {styles.buttonContainer}
-              onPress = {this.handleSubmit2}>
+              onPress = {this.handleSubmit}>
               <Text style = {styles.buttonText}>LOGIN</Text>
             </TouchableOpacity>
           </KeyboardAvoidingView>
         );
     }
 }
-
 const styles = StyleSheet.create({
   container: {
     padding: 20,

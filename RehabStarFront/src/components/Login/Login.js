@@ -1,7 +1,7 @@
 import React, { Component, Button } from 'react';
 import { StyleSheet, View, Image, Text, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import LoginForm from './LoginForm';
-
+import LottieView from 'lottie-react-native';
 
 export default class Login extends React.Component {
   static navigationOptions = {
@@ -16,7 +16,7 @@ export default class Login extends React.Component {
         <View style={styles.logoContainer}>
           <Image
           style={styles.logo}
-          source={require('../../images/logo.jpg')}
+          source={require('../../images/logo.gif')}
           />
 
           <Text style={styles.title}>Add Some App Description</Text>
@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 240,
+    height: 146,
   },
   title: {
     color: 'white',

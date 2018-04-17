@@ -11,6 +11,8 @@
     "native-base": "^2.4.1",
     "react": "16.2.0",
     "react-native": "0.53.0",
+    "react-native-splash-screen": "^3.0.6",
+    "react-native-splashscreen": "^1.0.0",
     "react-native-svg": "^6.1.3",
     "react-navigation": "^1.2.1"
   },

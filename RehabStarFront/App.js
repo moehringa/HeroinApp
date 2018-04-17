@@ -11,23 +11,25 @@ import {
   Text,
   View
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabView } from 'react-navigation';
+import SplashScreen from 'react-native-splash-screen';
+
 import Login from './src/components/Login/Login';
 import ProfileScreen from './src/components/ProfileScreen';
-import Splash from './src/components/Splash'
 import SearchScreen from './src/components/Search'
 import CreateNew from './src/components/Login/CreateNew'
 import MethodTest from './src/components/MethodTest'
+import StoryFeed from './src/components/StoryFeed'
 
 const AppNavigator = StackNavigator (
     {
 
         Home: {screen: Login},
-        Splash: {screen: Splash},
         Profile: {screen: ProfileScreen},
         Search: {screen: SearchScreen},
         CreateNew: {screen: CreateNew},
         Test: {screen: MethodTest},
+        StoryFeed: {screen: StoryFeed},
     },
     {
       initialRouteName: 'Home',
@@ -37,6 +39,11 @@ const AppNavigator = StackNavigator (
 type Props = {};
 
 export default class App extends Component<{}> {
+
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     return (
     <AppNavigator />

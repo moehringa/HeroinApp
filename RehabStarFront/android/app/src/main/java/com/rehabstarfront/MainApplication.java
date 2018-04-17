@@ -8,6 +8,8 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+
 
 import com.horcrux.svg.SvgPackage;
 
@@ -27,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new LottiePackage(),
-            new SvgPackage()
+            new SvgPackage(),
+            new SplashScreenReactPackage()
       );
     }
 
