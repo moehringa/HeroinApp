@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar,
-KeyboardAvoidingView } from 'react-native';
+KeyboardAvoidingView, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Login from './Login';
 import ProfileScreen from '../ProfileScreen';
-import Splash from '../Splash'
-import {getUserInfo, getAllUsers} from '../../services/MobileService'
+import {getUserInfo, getAllUsers, authenticateUser} from '../../services/MobileService'
 
 
 export default class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      username: '',
+      username: 'dmterk',
       password: '',
+      auth: false,
       error: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    //this.handleAuth = this.handleAuth.bind(this);
   }
 
   handleSubmit = () => {
@@ -41,17 +42,36 @@ export default class LoginForm extends React.Component {
     });
   }
 
+  // handleAuth = () => {
+  //   authenticateUser(this.state.name, this.state.password)
+  //     .then((res) => {
+  //       this.setState({auth: JSON.stringify(res)});
+  //       if(this.state.auth == true){
+  //         this.props.navigation.navigate(
+  //           'Profile',
+  //           {userInfo: getUserInfo(this.state.username)}
+  //         );
+  //         this.setState(
+  //           {error: false,
+  //             username:'',
+  //             auth: false
+  //           })
+  //       }
+  //     });
+  // }
+
     render() {
         return (
           <KeyboardAvoidingView behavior='padding' style={styles.container}>
           <StatusBar
             barStyle='light-content'
             />
+            
             <TextInput
             placeholder = 'username'
             placeholderTextColor = 'rgba(255,255,255,0.7)'
             returnKeyType='next'
-            onSubmitEditing={() => this.passwordInput.focus()}
+            onSubmitEditing={() => this.password.focus()}
             keyboardType = 'email-address'
             autoCapitalize='none'
             autoCorrect={false}
@@ -63,6 +83,7 @@ export default class LoginForm extends React.Component {
             placeholder = 'password'
             placeholderTextColor = 'rgba(255,255,255,0.7)'
             returnKeyType='go'
+            ref = {(input) => this.password = input}
             //onSubmitEditing={}
             autoCapitalize='none'
             autoCorrect={false}

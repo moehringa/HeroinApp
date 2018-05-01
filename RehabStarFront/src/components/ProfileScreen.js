@@ -49,39 +49,41 @@ export default class ProfileScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-      <Text> ID: {this.state.id} </Text>
-      <Text> username: {this.state.username} </Text>
-      <Text> Email: {this.state.email} </Text>
-      <Text> Password: {this.state.password} </Text>
-      <Text> Days Clean: {this.state.daysClean} </Text>
-      <Text> Goal: {this.state.goalDaysClean} days </Text>
-      <Text> Search Field: {this.state.currentSearch} </Text>
 
-      <TouchableOpacity style = {styles.buttonContainer}
-        onPress = {this.goToStories}>
-      <Text style = {styles.buttonText}>See the Stories</Text>
-      </TouchableOpacity>
+        <View style = {styles.id}>
+          <Text> {this.state.username} </Text>
+          <Text> ID: {this.state.id} </Text>
+          <Text> Password: {this.state.password} </Text>
+        </View>
+
+        <View style={styles.email}>
+          <Text> Email: {this.state.email} </Text>
+        </View>
+
+        <View style = {styles.goal}>
+
+          <View style = {styles.days}>
+            <Text> Days Clean: {this.state.daysClean} </Text>
+          </View>
+          <View style = {styles.days}>
+            <Text> Goal: {this.state.goalDaysClean} days </Text>
+          </View>
+
+        </View>
+
+          <Text> Search Field: {this.state.currentSearch} </Text>
+
+        <View style = {styles.bottomButtons}>
+          <TouchableOpacity style = {styles.buttonContainer}
+            onPress = {this.goToStories}>
+            <Text style = {styles.buttonText}>See the Stories</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
     );
   }
 }
-
-// const TabNav = TabNavigator({
-//   TabItem1: {
-//     screen: ProfileScreen,
-//     navigationOptions: {
-//       tabBarLabel:"Profile",
-//       tabBarIcon: ({ tintColor }) => <Icon name={"glass"} size={30} color={tintColor} />
-//     }
-//   },
-//   ///... add more tabs here
-//
-// }, {
-//   tabBarOptions: {
-//     activeTintColor: '#222',
-//   }
-// });
 
 const styles = StyleSheet.create({
   container: {
@@ -98,10 +100,42 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     paddingVertical: 15,
     marginBottom: 20,
+    width: 100,
+    height: 50,
   },
   buttonText: {
     textAlign: 'center',
     color: '#FFFFFF',
     fontWeight: 'bold'
   },
+  id: {
+    flex: 1.5,
+    backgroundColor: '#30C5FF',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: 15,
+  },
+  email: {
+    flex: 1,
+    backgroundColor: '#52FFB8',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  days: {
+    flex: 1,
+    backgroundColor: '#539987',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  goal: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'yellow',
+  },
+  bottomButtons: {
+    flex: .3,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  }
 });

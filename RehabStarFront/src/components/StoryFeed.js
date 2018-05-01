@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Button, StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar,
-  ToolbarAndroid, FlatList} from 'react-native';
+  ToolbarAndroid, FlatList, Alert} from 'react-native';
 import { StackNavigator, TabNavigator} from 'react-navigation';
+//import { List, ListItem } from 'react-native-elements'
 
 export default class StoryFeed extends React.Component {
   static navigationOptions = {
@@ -11,8 +12,12 @@ export default class StoryFeed extends React.Component {
   constructor(props){
     super(props);
     this.state={
+      loading: false,
       feed: this.props.navigation.state.params.stories,
-      error: false,
+      page: 1,
+      seed: 1,
+      error: null,
+      refreshing: false,
     }
   }
   FlatListItemSeparator = () => {
@@ -44,7 +49,8 @@ GetFlatListItem (title) {
       <FlatList style={styles.feed}
         data={ this.state.feed }
         ItemSeparatorComponent = {this.FlatListItemSeparator}
-        renderItem={({item}) => <Text style={styles.FlatListItemStyle} onPress={this.GetFlatListItem.bind(this, item)}>
+        renderItem={({item}) => <Text style={styles.FlatListItemStyle}
+                                  onPress={this.GetFlatListItem.bind(this, item.title)}>
                                   id: {item.userId}{'\n'}
                                   title: {item.title}
                                 </Text>}
@@ -81,6 +87,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   feed: {
-    padding: 15,
+    padding: 10,
   },
 });

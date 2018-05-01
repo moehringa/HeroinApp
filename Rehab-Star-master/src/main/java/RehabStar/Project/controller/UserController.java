@@ -224,4 +224,9 @@ public class UserController {
         return "forgotPassword";
     }
 
+    @RequestMapping(value = "/createUser/{username}/{email}/{password}", method = RequestMethod.POST)
+    public void addUser(@PathVariable String email, @PathVariable String username, @PathVariable String password) {
+        userService.createUser(username, email, password);
+    }
+
 }

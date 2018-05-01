@@ -49,10 +49,9 @@ public class FollowingPairController {
     }
 
     @RequestMapping(value = "/addFollower/{id}", method = RequestMethod.POST)
-    public String addFollower(@ModelAttribute(value = "user") User user, @PathVariable("id") int id) {
+    public void addFollower(@ModelAttribute(value = "user") User user, @PathVariable("id") int id) {
         followingPairService.addFollowingPair(userService.findUserByUserName(user.getUserName()).getId(), id);
         user.setId(userService.findUserByUserName(user.getUserName()).getId());
-        return "followingsplash";
     }
 
 }
